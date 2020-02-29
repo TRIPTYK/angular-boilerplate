@@ -11,9 +11,9 @@
 
   <div class="col-50">
     <cpas-user-details
-      [user]="selectedUser"
-      (cancelled)="cancel($event)"
-      (saved)="saveProject($event)"
+      [user]="currentUser$"
+      (cancelled)="resetCurrentUser()"
+      (saved)="saveUser($event)"
     ></cpas-user-details>
   </div>
 </div>

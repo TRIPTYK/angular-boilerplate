@@ -1,61 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService, User } from '@cpas/core-data';
+import { UsersService, User, UsersFacade } from '@cpas/core-data';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'cpas-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users$;
-  selectedUser: User;
+  users$: Observable<User[]> = this.usersFacade.allProjects$;
+  currentUser$: Observable<User> = this.usersFacade.currentUser$;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersFacade: UsersFacade) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.usersFacade.loadUsers();
+    this.usersFacade.mutations$.subscribe(_ => this.resetCurrentUser());
+    this.resetCurrentUser;
   }
-
-  getUsers() {
-    this.users$ = this.usersService.all();
+  selectUser(user: any) {
+    this.usersFacade.selectUser(user.id);
   }
-
-  selectUser(user: User) {
-    this.selectedUser = user;
+  resetCurrentUser() {
+    this.selectUser({ id: null });
   }
-  resetUser() {
-    const emptyUser: User = {
-      id: null,
-      name: '',
-      email: '',
-      role: 'user',
-      isActive: false
-    };
-    this.selectUser(emptyUser);
-  }
-  saveProject(user) {
+  saveUser(user) {
     if (!user.id) {
-      this.createUser(user);
+      this.usersFacade.addUser(user);
     } else {
-      this.updateUser(user);
+      this.usersFacade.updateUser(user);
     }
   }
-  createUser(user) {
-    this.usersService.create(user).subscribe(result => {
-      this.getUsers();
-      this.resetUser();
-    });
-  }
 
-  updateUser(user) {
-    this.usersService.update(user).subscribe(result => {
-      this.getUsers();
-      this.resetUser();
-    });
-  }
-  cancel(event) {
-    this.resetUser();
-  }
   deleteUser(user) {
-    this.usersService.delete(user.id).subscribe(result => this.getUsers());
+    this.usersFacade.deleteUser(user);
   }
 }
