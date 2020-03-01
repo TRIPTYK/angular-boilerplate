@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NxModule } from '@nrwl/nx';
 
 import { reducers } from '.';
-import { ProjectsEffects } from './users/users.effects';
+import { UsersEffects } from './users/users.effects';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { ProjectsEffects } from './users/users.effects';
     NxModule.forRoot(),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
-    EffectsModule.forRoot([ProjectsEffects])
+    EffectsModule.forRoot([UsersEffects])
   ],
   declarations: []
 })

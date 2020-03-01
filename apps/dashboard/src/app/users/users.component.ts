@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService, User, UsersFacade } from '@cpas/core-data';
+import { User, UsersFacade } from '@cpas/core-data';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'cpas-users',

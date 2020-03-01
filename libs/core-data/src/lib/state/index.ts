@@ -9,11 +9,11 @@ import * as fromUsers from './users/users.reducer';
 import { User } from '../users/user';
 
 export interface AppState {
-  projects: fromUsers.UsersState;
+  users: fromUsers.UsersState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  projects: fromUsers.usersReducer
+  users: fromUsers.usersReducer
 };
 
 // -------------------------------------------------------------------

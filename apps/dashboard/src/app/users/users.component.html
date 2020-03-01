@@ -10,6 +10,7 @@
   </div>
 
   <div class="col-50">
+    {{ currentUser$ | async | json }}
     <cpas-user-details
       [user]="currentUser$"
       (cancelled)="resetCurrentUser()"

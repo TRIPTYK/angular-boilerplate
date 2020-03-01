@@ -20,7 +20,7 @@ import {
 import { UsersState } from './users.reducer';
 
 @Injectable({ providedIn: 'root' })
-export class ProjectsEffects {
+export class UsersEffects {
   @Effect() effect$ = this.actions$.pipe(ofType(UsersActionTypes.UsersAction));
 
   @Effect()
