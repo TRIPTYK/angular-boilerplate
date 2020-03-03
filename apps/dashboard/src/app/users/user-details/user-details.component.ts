@@ -15,7 +15,8 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  @Input() set user(value) {
+  @Input() set user(value:User) {
+    console.log(value)
     if (value) this.originalTitle = value.name;
     this.currentUser = Object.assign({}, value);
   }

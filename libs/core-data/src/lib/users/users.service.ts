@@ -30,7 +30,7 @@ export class UsersService {
     return this.httpClient.patch(this.getUrlForId(project.id), project);
   }
 
-  delete(projectId) {
-    return this.httpClient.delete(this.getUrlForId(projectId));
+  delete(project) {
+    return this.httpClient.delete(this.getUrlForId(project.id));
   }
 }

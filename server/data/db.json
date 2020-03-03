@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "techie",
+      "name": "techie23",
       "email": "techie@email.com",
       "password": "techie",
       "role": "moderator",
@@ -30,6 +30,13 @@
       "email": "gilles@email.com",
       "password": "user",
       "role": "user",
+      "isActive": false
+    },
+    {
+      "id": 5,
+      "name": "test",
+      "email": "test@test.coim",
+      "role": "tes",
       "isActive": false
     }
   ]
