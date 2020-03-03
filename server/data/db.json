@@ -39,5 +39,31 @@
       "role": "tes",
       "isActive": false
     }
-  ]
+  ],
+  "etablissements": [
+    {
+        "id":"1",
+        "name":"Fake etablissement",
+        "address":"2",
+        "type":"1",
+        "softdelete":1,
+        "active": true
+    },
+    {
+        "id":"2", 
+        "name":"Crumbs",
+        "address":"1",
+        "type":"3",
+        "softdelete":1,
+        "active": true
+    },
+    {
+        "id":"3",
+        "name":"Mac'Do",
+        "address":"1",
+        "type":"3",
+        "softdelete":1,
+        "active": true
+    }
+]
 }
